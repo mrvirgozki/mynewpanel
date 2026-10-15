@@ -24,7 +24,7 @@ RUN apk add --no-cache \
     libressl-dev
 
 # ------------------------------------------------------------------------------
-# BADVPN UDPGW INSTALLATION (Naayos na ang CMake Policy Version)
+# BADVPN UDPGW INSTALLATION
 # ------------------------------------------------------------------------------
 RUN git clone --depth 1 https://github.com/ambrop72/badvpn.git /tmp/badvpn \
     && mkdir -p /tmp/badvpn/build \
@@ -34,10 +34,10 @@ RUN git clone --depth 1 https://github.com/ambrop72/badvpn.git /tmp/badvpn \
     && rm -rf /tmp/badvpn
 
 # ------------------------------------------------------------------------------
-# SSH CONFIGURATION & USER
+# SSH CONFIGURATION & USER (Fixed: Gumamit na ng adduser para sa Alpine)
 # ------------------------------------------------------------------------------
 RUN mkdir -p /run/sshd /var/run/sshd /etc/ssh \
-    && useradd --create-home --shell /bin/bash virgozki \
+    && adduser -D -s /bin/bash virgozki \
     && echo 'virgozki:virgozki' | chpasswd
 
 RUN printf '%s\n' \

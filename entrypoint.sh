@@ -4,7 +4,7 @@ set -e
 PORT=${PORT:-8080}
 echo "✅ Ginagamit na port: $PORT"
 
-# Siguraduhing mapapalitan ang port sa nginx.conf
+# Siguraduhing mapapalitan ang port sa nginx.conf kung kinakailangan
 sed -i "s/listen\s*[0-9]*\(.*\);/listen $PORT\1;/g" /usr/local/openresty/nginx/conf/nginx.conf
 
 echo "[+] Preparing SSH host keys..."

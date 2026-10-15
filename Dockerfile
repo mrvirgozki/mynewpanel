@@ -52,6 +52,8 @@ RUN printf '%s\n' \
     'Compression no' \
     'X11Forwarding no' \
     'AllowTcpForwarding yes' \
+    'AllowTcpForwarding remote' \
+    'PermitOpen any' \
     'Banner /etc/ssh/banner.txt' \
     >> /etc/ssh/sshd_config
 

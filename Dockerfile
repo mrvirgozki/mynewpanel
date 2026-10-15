@@ -24,12 +24,12 @@ RUN apk add --no-cache \
     libressl-dev
 
 # ------------------------------------------------------------------------------
-# BADVPN UDPGW INSTALLATION
+# BADVPN UDPGW INSTALLATION (Naayos na ang CMake Policy Version)
 # ------------------------------------------------------------------------------
 RUN git clone --depth 1 https://github.com/ambrop72/badvpn.git /tmp/badvpn \
     && mkdir -p /tmp/badvpn/build \
     && cd /tmp/badvpn/build \
-    && cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1 \
+    && cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1 -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     && make install \
     && rm -rf /tmp/badvpn
 

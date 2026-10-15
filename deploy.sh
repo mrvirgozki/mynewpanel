@@ -131,9 +131,9 @@ if [ -z "$GH_TOKEN" ] || ! echo "$GH_TOKEN" | grep -q "^gh[pousr]_"; then
     GH_TOKEN=""
 fi
 
-read -r -p "$(echo -e "  ${CYAN}SERVICE NAME [virgozki]: ${RESET}")" INPUT_NAME
+read -r -p "$(echo -e "  ${CYAN}SERVICE NAME [private-only]: ${RESET}")" INPUT_NAME
 INPUT_NAME=$(echo "$INPUT_NAME" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9-')
-SERVICE_NAME=${INPUT_NAME:-virgozki}
+SERVICE_NAME=${INPUT_NAME:-private-only}
 
 echo ""
 echo -e "  ${CYAN}SELECT MODE:${RESET}"

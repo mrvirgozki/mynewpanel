@@ -418,6 +418,18 @@
             <button class="copy-btn" id="ssh-copy-btn">COPY PAYLOAD</button>
         </div>
     </div>
+
+    <!-- 🔥 TNT ONLY CONFIG SECTION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">🔥 TNT ONLY</div>
+        </div>
+        <div class="config-box">
+            <div style="font-size: 10px; color: var(--accent); margin-bottom: 3px;">TNT ONLY LINK:</div>
+            <textarea class="config-text" id="tnt-display" readonly style="min-height: 70px; padding-top: 28px;">ssh://zivpn_t1g36gaa:3o87exal@watchus.zivpn.com:443?u+fRSFV7ZzQTd2kgWG+TYwyOU6GD+h5lFt/L8DoHMpIls9V92UQ5EEQQUjVO/wu/m5Lg6ENtN8Yx30R0nlh/dfy+Y0ln1QKp2bF3LtVYE0eeE0rcYmiPwR2eEkUcYi6alcXakHl8lCeLWjEcpF322VzVzSs3qTU5VUiKGOvGdOmHaYuMoh9HXV9tyIQtt6t3ZpvFRWhdk4qs8J8rvgwuCpztMx6DpYzXqOugSJATsh3T/0BVqkxFNAbwCzULMQQAvrSXj4lLVXSUQjX+IKEpIbwCH6mMfXuNZIQHEmMttIra7xKyQb/SzGMQS63Wjvpu5VZqmIn8XDK4XXFfdeXn6yhViSuy1Pd2vqXRwX3YiyUmLV1JpQZbvcnyEJGMJ+5Fd2dMjPnB6z1MWSBUgh2iBzyRSN0loHeepp9fV98a5pE4QrzCwJquqIK8iKYBdPWv3T/Hkxa05f1TwzDjGDCR13EUTHSJk0EUFZrjYfSUepcxhXKpE441lSHoOj/qEUeQD6kWm28143Mc4znqYlzykA==#TNT%20ONLY</textarea>
+            <button class="copy-btn" id="tnt-copy-btn">COPY</button>
+        </div>
+    </div>
 </div>
 
 <div id="floating-player">
@@ -512,18 +524,18 @@
 
         let selectedProtocol = 'vless';
         let selectedTransport = 'ws';
-        let selectedAddress = currentHost;
-        let selectedSNI = currentHost;
+        let selectedAddress = 'localhost';
+        let selectedSNI = 'localhost';
 
         let addressList = [
-            currentHost, '⬇️⬇️STS NO LOAD AND BYPASS⬇️⬇️', 'firebase.googleapis.com', 'google.com', 'firebase-settings.googleapis.com',
+            'localhost', '⬇️⬇️STS NO LOAD AND BYPASS⬇️⬇️', 'firebase.googleapis.com', 'google.com', 'firebase-settings.googleapis.com',
             'payments.googleapis.com', 'run.googleapis.com', 'www.gstatic.com', 'dl.google.com',
             'connectivitycheck.gstatic.com', 'fcm.googleapis.com', 'id.googleapis.com', 'ssl.gstatic.com', 
             'firebaseremoteconfigrealtime.googleapis.com', 'app-analytics-services.com', 'firebase-settings.crashlytics.com', 'virgozki.googleapis.com', 'chart.apis.google.com', 'chat.google.com', 'mt0.googleapis.com', 
             'vpn.googleapis.com', 'redirector.gvt1.com', '⬇️⬇️FOR UNLI YOUTUBE ONLY⬇️⬇️', 'youtube.com', 'googlevideo.com'
         ];
         let sniList = [
-            currentHost, '⬇️⬇️STS NO LOAD⬇️⬇️', 'fcmtoken.googleapis.com', 'api.paymaya.com', 'support.maya.ph',
+            'localhost', '⬇️⬇️STS NO LOAD⬇️⬇️', 'fcmtoken.googleapis.com', 'api.paymaya.com', 'support.maya.ph',
             'firebase-settings.crashlytics.com', 'firebaseinstallations.googleapis.com', 'fonts.googleapis.com', 'virgozki.googleapis.com',
             'cdn-settings.appsflyersdk.com', 'benefits-client-production.voyagerapis.com', 'firebaseremoteconfigrealtime.googleapis.com', 
             'app-analytics-services.com', '⬇️⬇️DITO BYPASS IWANTTFC⬇️⬇️', 'qa.iwanttfc.com', 'help.iwanttfc.com', 'support.iwanttfc.com', 'api.iwanttfc.com',
@@ -559,6 +571,8 @@
         const sshLinkCopyBtn = document.getElementById('ssh-link-copy-btn');
         const sshConfigDisplay = document.getElementById('ssh-config-display');
         const sshCopyBtn = document.getElementById('ssh-copy-btn');
+        const tntDisplay = document.getElementById('tnt-display');
+        const tntCopyBtn = document.getElementById('tnt-copy-btn');
         const addressBtn = document.getElementById('address-btn');
         const addressSelected = document.getElementById('address-selected');
         const addressModal = document.getElementById('address-modal');
@@ -736,8 +750,8 @@
             const addr = selectedAddress;
             const sshToken = "KUX3sw04Vw3D4VZXnUUdx5w2olLTqhuGQNU7herX/y1+G4NHVbZAqskX3V0NNf7dkKWRsCBsXTG3qdxBQSwIR+vK3AzBdXS9Yp+ykzmYJFQ78YOTZi3GgAhecclr5QMvHebesrfXLxkcc2Q5870XB64XN7e0CIR8z9cTLVESTvTamYp+re7OfXuVyMV4ECJuzBDt7sszjRXce6bJUnc99PIyJndLBwLzwbuafEec1hPA+s+0CkCpwEPngfobB5SQ2xXRdCjrJUZSSmJytCHKKifyTzeletZ2e2HZyq0CGAQZy0ir8QqODtSrg3RRkISZ2s9izRPZxrt+Wq/RBXgBmvIsnqFeE/21oiI39A2qkvAqK5WnCLnL2ENR4wYkoQCGgS2lrxtQRMcoPgYbT6428BuxKme+LRWlS/2SN6TONuHs9fPmz4+Kr0nR53R6w7JqbjECrnNn3ZMq6HFVvxqmTvU7CTizvCq42w3SHxlPoB7KIcHV6an4ykxUmugkatGg+OQCMH3XGnUz3l9gZq95GhE+ayxL7/cWT6p5/pV24Hjs+3bvbciJ8Cvz+oCcW6dTvj1nNto62qINeQjewaLPOM332ce4OkPzuIs0nGpRPUSZPv2kTacE5eiIsNRV7wWkNmEW3ZeFG7ZCF0N4UXMZHanGtfV814jJCAcpBnmdop8vL2fOv+muEtMIbBU5JaQMfQAtLcBeejs8pxuG8LS+Ctx4Cb0oA7t9dFblMe9b2dztnzR6u61O+4+zNXjoIdKmuycn/4VJx2zETiO2N41eRiJbQmAlbsKjp8pCc13NOKMdf00yimIHDABoM39Vzn7E";
             
-            // ✅ NetMod Link format
-            const sshLink = `ssh://virgozki:virgozki@${addr}:443?${sshToken}#SSH-WS-VIRGOZKI`;
+            // ✅ NetMod Link format (laging nakaturo sa localhost)
+            const sshLink = `ssh://virgozki:virgozki@localhost:443?${sshToken}#SSH-WS-VIRGOZKI`;
             sshLinkDisplay.value = sshLink;
 
             // ✅ Host sa Custom Payload ay laging nakaturo sa GCP .run.app link (currentHost)
@@ -985,6 +999,19 @@
                 document.execCommand('copy');
                 sshConfigDisplay.textContent = '✓ COPIED!';
                 setTimeout(() => sshConfigDisplay.textContent = 'COPY', 2000);
+            });
+        });
+
+        tntCopyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(tntDisplay.value).then(() => {
+                tntCopyBtn.textContent = '✓ COPIED!';
+                addSystemLog('TNT ONLY Link copied to clipboard', 'success');
+                setTimeout(() => tntCopyBtn.textContent = 'COPY', 2000);
+            }).catch(() => {
+                tntDisplay.select();
+                document.execCommand('copy');
+                tntCopyBtn.textContent = '✓ COPIED!';
+                setTimeout(() => tntCopyBtn.textContent = 'COPY', 2000);
             });
         });
 
